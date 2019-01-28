@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="arduino_port" default="/dev/ttyACM0"/>
+    
+    <include file="$(find vio_hardware)/launch/pylon_camera_node.launch"/>
+
+    <node name="arduino_interface" pkg="rosserial_python" type="serial_node.py" output="screen">
+        <param name="port" value="$(arg arduino_port)" />
+    </node>
+</launch>
