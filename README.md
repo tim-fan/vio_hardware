@@ -6,10 +6,21 @@ The main aims include:
 
 ## Hardware:
 
+![rig top view](doc/vio_rig.jpg)
+
+Components:
  - Camera: Basler acA640-100gm
  - IMU: MPU-6050 EV Board
  - Teensy 3.2 
  - Laptop (Ubuntu 16.04.4 LTS, ROS kinetic)
+
+In this rig the Teensy has responsibility for providing timestamps for both the imu readings and camera frames. This is expected to provide well synchronised timestamps, to aid in the downstream VIO algorithm. 
+
+The Teensy reads the IMU over i2c and immediately timestamps the data, before seending the message over rosserial to the laptop. 
+
+Regarding the camera input, image timestamps are determined using the camera's exposure active output, which is connected to the Teensy. From this input the image timestamp can be accurately determined. These timestamps are sent over rosserial to the laptop, where they are matched with the images received from the camera.
+
+![system ros graph](doc/rosgraph_vio_hardware.png)
 
 ## References:
 
