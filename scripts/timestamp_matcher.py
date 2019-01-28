@@ -124,7 +124,7 @@ def timestamp_matcher():
 
     timestampMatcher = TimestampMatcher()
 
-    imgPub = rospy.Publisher('image_raw_timestamp_corrected', Image, queue_size=10)
+    imgPub = rospy.Publisher('image_timestamp_corrected', Image, queue_size=10)
 
     #option: set publish_corrections true to publish the timestamp correction sizes to
     #a float topic
@@ -149,7 +149,7 @@ def timestamp_matcher():
 
             imgPub.publish(msg)
 
-    rospy.Subscriber("image_raw", Image, publishUpdatedImage)
+    rospy.Subscriber("image", Image, publishUpdatedImage)
     rospy.Subscriber("image_time_reference", TimeReference, timestampMatcher.receiveTimeReference)
 
     rospy.spin()

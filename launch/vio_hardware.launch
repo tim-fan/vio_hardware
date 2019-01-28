@@ -2,9 +2,17 @@
 <launch>
     <arg name="arduino_port" default="/dev/ttyACM0"/>
     
-    <include file="$(find vio_hardware)/launch/pylon_camera_node.launch"/>
+    <group ns="vio_hardware">
+        <include file="$(find vio_hardware)/launch/pylon_camera_node.launch"/>
 
-    <node name="arduino_interface" pkg="rosserial_python" type="serial_node.py" output="screen">
-        <param name="port" value="$(arg arduino_port)" />
-    </node>
+        <node name="arduino_interface" pkg="rosserial_python" type="serial_node.py" output="screen">
+            <param name="port" value="$(arg arduino_port)" />
+        </node>
+
+        <node name="timestamp_matcher" pkg="vio_hardware" type="timestamp_matcher.py" output="screen">
+            <remap from="image_time_reference" to="exposure_timestamps"/>
+            <remap from="image" to="pylon_camera_node/image_raw"/>
+            <param name="publish_corrections" value="True" />
+        </node>
+    </group>
 </launch>
