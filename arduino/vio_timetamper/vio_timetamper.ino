@@ -13,6 +13,7 @@
 // messages to the wider ROS network.
 
 
+
 // Much of the IMU code is copied from the MPU6050 library raw example
 
 #include <Arduino.h>
@@ -297,7 +298,7 @@ void loop()
 
   if (triggerImu)
   {
-    imu_msg.header.stamp = rosClock.microsToRosTime(exposureTime);
+    imu_msg.header.stamp = rosClock.microsToRosTime(micros());
     imu.read(imu_msg);
     
     imu_pub.publish(&imu_msg);
