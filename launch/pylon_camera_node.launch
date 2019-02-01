@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="respawn" default="false" />
+    <arg name="respawn" default="true" />
     <arg name="debug" default="false" />
     <arg name="node_name" default="pylon_camera_node" />
     <arg name="config_file" value="$(find vio_hardware)/config/pylon_camera_config.yaml" />
@@ -9,7 +9,7 @@
     <arg     if="$(arg debug)" name="launch_prefix" value="gdb -ex run --args" />
 
     <node name="$(arg node_name)" pkg="pylon_camera" type="pylon_camera_node" output="screen"
-          respawn="$(arg respawn)" launch-prefix="$(arg launch_prefix)">
+          respawn="$(arg respawn)" respawn_delay="10" launch-prefix="$(arg launch_prefix)">
         <rosparam command="load" file="$(arg config_file)" />
     </node>
 </launch>
