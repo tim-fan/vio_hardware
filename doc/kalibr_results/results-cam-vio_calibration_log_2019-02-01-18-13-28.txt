@@ -1,0 +1,20 @@
+Calibration results 
+====================
+Camera-system parameters:
+	cam0 (/vio_hardware/image_timestamp_corrected):
+	 type: <class 'aslam_cv.libaslam_cv_python.EquidistantDistortedPinholeCameraGeometry'>
+	 distortion: [-0.0346957  -0.02575854  0.02575955 -0.00756449] +- [0.01368879 0.05620288 0.09215992 0.05116997]
+	 projection: [299.97820042 300.15948947 332.29867923 255.7740825 ] +- [1.38505141 1.39116426 0.46599166 0.4801488 ]
+	 reprojection error: [0.000001, -0.000000] +- [0.102437, 0.099063]
+
+
+
+Target configuration
+====================
+
+  Type: aprilgrid
+  Tags: 
+    Rows: 6
+    Cols: 6
+    Size: 0.0293 [m]
+    Spacing 0.00879 [m]
