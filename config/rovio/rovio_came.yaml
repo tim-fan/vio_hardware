@@ -1,0 +1,13 @@
+image_width: 659
+image_height: 494
+camera_name: came
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [299.978200423, 0.0, 332.29867923, 0.0, 300.159489465, 255.774082504, 0.0, 0.0, 1.0]
+distortion_model: equidistant
+distortion_coefficients:
+  rows: 1
+  cols: 4
+  data: [-0.034695697328, -0.0257585371129, 0.0257595479087, -0.00756449099712]
+
