@@ -1,0 +1,9 @@
+label: /vio_hardware/imu
+saturation_accel_max: 150.0
+saturation_gyro_max: 7.5
+gravity_magnitude: 9.81
+imu_sigmas:
+    acc_noise_density: 0.00025217
+    acc_bias_random_walk_noise_density: 0.000147
+    gyro_noise_density: 9.5813e-06
+gyro_bias_random_walk_noise_density: 0.000108400035241

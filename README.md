@@ -39,6 +39,7 @@ Hardware setup:
 
  - IMU calibration: As discussed in this [maplab github issue](https://github.com/ethz-asl/maplab/issues/19#issuecomment-353033323), the MPU6050 is a low cost IMU, and may require intrinsic calibration, and some sort of node to apply calibration correction prior to passing the data to ROVIO.
  Can this be used for calibration: [http://www.i2cdevlib.com/forums/topic/96-arduino-sketch-to-automatically-calculate-mpu6050-offsets/](http://www.i2cdevlib.com/forums/topic/96-arduino-sketch-to-automatically-calculate-mpu6050-offsets/).?
+ Should I try to measure IMU params from Allan variance? (see [https://github.com/rpng/kalibr_allan](https://github.com/rpng/kalibr_allan)
  - Alternatively, should I be considering a better quality IMU? The adis16445/16448 (a $500 IMU) is recommended here: https://github.com/ethz-asl/maplab/issues/56#issuecomment-374710395 
  - micros() vs. ros::Time: It would be nice if the arduino and host PC clocks were well synchronised, so that any data timestamped on the PC is in sync with that from the arduino. However there appears to be doubt as to how well this synchronisation is currently performed in rosserial (relevant [
 github issue)](https://github.com/ros-drivers/rosserial/issues/392). Hence I've chosen not to use ros::Time for arduino timestamps for now. As mentioned in the linked issue, there appears to be some work underway to address this, so perhaps I can migrate back to ros::Time in future.
