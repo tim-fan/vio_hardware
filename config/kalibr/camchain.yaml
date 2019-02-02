@@ -1,0 +1,9 @@
+cam0:
+  cam_overlaps: []
+  camera_model: pinhole
+  distortion_coeffs: [-0.034695697328039746, -0.0257585371129136, 0.025759547908685492,
+    -0.007564490997120292]
+  distortion_model: equidistant
+  intrinsics: [299.97820042261236, 300.1594894651094, 332.2986792295591, 255.7740825036964]
+  resolution: [659, 494]
+  rostopic: /vio_hardware/image_timestamp_corrected

@@ -1,0 +1,17 @@
+# IMU parameters for MPU6050
+# Values copied from a google group chat, where OP states they were derived from 
+#Allan variance measurements
+#see
+# https://groups.google.com/group/kalibr-users/attach/5da98527f55cf808/results-imucam.txt?part=0.2&view=1
+# https://groups.google.com/d/msg/kalibr-users/rV3vUa8d228/CPhc9SeFqV0J
+
+#Accelerometers
+accelerometer_noise_density: 0.00025217    #Noise density (continuous-time)
+accelerometer_random_walk:   0.000147   #Bias random walk
+
+#Gyroscopes
+gyroscope_noise_density:     9.5813e-06   #Noise density (continuous-time)
+gyroscope_random_walk:       0.000108400035241   #Bias random walk
+
+rostopic:                    /vio_hardware/imu      #the IMU ROS topic
+update_rate:                 200.0      #Hz (for discretization of the values above)
