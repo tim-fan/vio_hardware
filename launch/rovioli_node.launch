@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<launch>
+  <node pkg="rovioli" type="rovioli" name="rovioli" output="screen" args="
+    --alsologtostderr=1 \
+    --v=2 \ 
+    --ncamera_calibration=$(find vio_hardware)/config/maplab/ncamera_calibration.yaml \
+    --imu_parameters_maplab=$(find vio_hardware)/config/maplab/imu_parameters_maplab.yaml \
+    --imu_parameters_rovio=$(find vio_hardware)/config/maplab/imu_parameters_rovio.yaml \
+    --datasource_type=rostopic \
+    --vio_camera_topic_suffix=''
+    --save_map_folder=/tmp/rovioliOutput \
+    --map_builder_save_image_as_resources=false \
+    --optimize_map_to_localization_map=false
+    "
+  />
+</launch>
