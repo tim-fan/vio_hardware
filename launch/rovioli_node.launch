@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <launch>
+  <arg name="visualise" default="false" />
   <node pkg="rovioli" type="rovioli" name="rovioli" output="screen" args="
     --alsologtostderr=1 \
     --v=2 \ 
@@ -13,4 +14,5 @@
     --optimize_map_to_localization_map=false
     "
   />
+  <include file="$(find vio_hardware)/launch/rovioli_rviz.launch" if="$(eval visualise)" />
 </launch>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <launch>
+  <arg name="visualise" default="false" />
   <node pkg="rovio" type="rovio_node" name="rovio" output="screen">
     <param name="filter_config" value="$(find vio_hardware)/config/rovio/rovio.info"/>
     <param name="camera0_config" value="$(find vio_hardware)/config/rovio/rovio_cam0.yaml"/>
     <remap from="cam0/image_raw" to="/vio_hardware/image_timestamp_corrected"/>
     <remap from="imu0" to="/vio_hardware/imu"/>
   </node>
+  <include file="$(find vio_hardware)/launch/rovio_rviz.launch" if="$(eval visualise)" />
 </launch>
