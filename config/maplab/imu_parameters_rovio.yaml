@@ -1,4 +1,7 @@
-acc_noise_density: 0.00025217
-acc_bias_random_walk_noise_density: 0.000147
-gyro_noise_density: 9.5813e-06
-gyro_bias_random_walk_noise_density: 0.000108400035241
+#params copied from rovioli defaults for Euroc dataset
+# https://github.com/ethz-asl/maplab/blob/master/applications/rovioli/share/imu-adis16488.yaml
+
+acc_noise_density: 4e-5
+acc_bias_random_walk_noise_density: 1e-8
+gyro_noise_density: 7.6e-7
+gyro_bias_random_walk_noise_density: 3.8e-7

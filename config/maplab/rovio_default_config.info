@@ -6,7 +6,7 @@ Common
     depthType 1;                                                Type of depth parametrization (0: normal, 1: inverse depth, 2: log, 3: hyperbolic)
     verbose false;                                              Is the verbose active
 }
-Camerae
+Camera0
 {
   CalibrationFile  ;            Camera-Calibration file for intrinsics
   qCM_x  -0.0068596582827;                               X-entry of IMU to Camera quaterion (Hamilton)
@@ -16,6 +16,20 @@ Camerae
   MrMC_x -0.00964951457056;                               X-entry of IMU to Camera vector (expressed in IMU CF) [m]
   MrMC_y 0.0147204610482;                               Y-entry of IMU to Camera vector (expressed in IMU CF) [m]
   MrMC_z -0.0175477773347;                               Z-entry of IMU to Camera vector (expressed in IMU CF) [m]
+}
+VelocityUpdate
+{
+    UpdateNoise
+    {
+        vel_0 0.0001
+        vel_1 0.0001
+        vel_2 0.0001
+    }
+    MahalanobisTh0 7.689997599999999
+    qAM_x 0
+    qAM_y 0
+    qAM_z 0
+    qAM_w 1
 }
 Init
 {
@@ -64,8 +78,8 @@ ImgUpdate
   updateVecNormTermination 1e-4;
   maxNumIteration 20;
     doPatchWarping true;                    Should the patches be warped
-    doFrameVisualisation false;                 Should the frames be visualized
-    visualizePatches false;                   Should the patches be visualized
+    doFrameVisualisation true;                 Should the frames be visualized
+    visualizePatches true;                   Should the patches be visualized
     useDirectMethod true;                   Should the EKF-innovation be based on direct intensity error (o.w. reprojection error)
     startLevel 2;                       Highest patch level which is being employed (must be smaller than the hardcoded template parameter)
     endLevel 1;                         Lowest patch level which is being employed
